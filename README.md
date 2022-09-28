@@ -27,8 +27,8 @@ Given the batch ID (say, batch ID 23), fetch the batch info by running:
 wget -nv -q -O- https://gw.playground-v2.starkex.co/feeder_gateway/get_batch_info?batch_id=23
 ```
 
-### To run in Mac
+### Execute
 
-Build
-`docker build -t playground --platform linux/arm64/v8 .`
+Execute the transaction
 
+`./player.py --txs txs.json --node_url https://goerli.infura.io/v3/866cd7f20d8846169cecdd5aa0142df1 --funder_private_key 0xcc7ae8e102837cf14304b317b6de38aed355202d23b321120151a19f55972832 --verbose`

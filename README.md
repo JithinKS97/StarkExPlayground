@@ -26,3 +26,9 @@ Given the batch ID (say, batch ID 23), fetch the batch info by running:
 ```
 wget -nv -q -O- https://gw.playground-v2.starkex.co/feeder_gateway/get_batch_info?batch_id=23
 ```
+
+### To run in Mac
+
+Build
+`docker build -t playground --platform linux/arm64/v8 .`
+

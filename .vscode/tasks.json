@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "docker-build",
+      "label": "docker-build",
+      "platform": "python",
+      "dockerBuild": {
+        "tag": "starkexplayground:latest",
+        "dockerfile": "${workspaceFolder}/Dockerfile",
+        "context": "${workspaceFolder}",
+        "pull": true,
+        "customOptions": "--platform linux/arm64/v8"
+      }
+    },
+    {
+      "type": "docker-run",
+      "label": "docker-run: debug",
+      "dependsOn": ["docker-build"],
+      "python": {
+        "file": "player.py",
+        "args": [
+          "txs=txs.json",
+          "node_url=https://goerli.infura.io/v3/866cd7f20d8846169cecdd5aa0142df1",
+          "funder_private_key=0xcc7ae8e102837cf14304b317b6de38aed355202d23b321120151a19f55972832",
+          "verbose"
+        ]
+      }
+    }
+  ]
+}
